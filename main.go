@@ -25,7 +25,7 @@ Options:
     -f <file>     Specify test files which should be scanned.
                   [default: *_test.go]
     -o <file>     Specify output file, use "-" value for stdout.
-    			  [default: -]
+                  [default: -]
     -h --help     Show this screen.
     -v --version  Show version.
 `
