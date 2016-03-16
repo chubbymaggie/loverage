@@ -69,6 +69,8 @@ func main() {
 		log.Fatalf("can't glob files: %s", err)
 	}
 
+	SortTestFiles(files)
+
 	functions, err := getTestFunctionsFromFiles(files)
 	if err != nil {
 		log.Fatal(err)
