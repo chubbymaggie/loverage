@@ -1,4 +1,7 @@
-i don't want to write a documentation
+# Loverage
+
+Loverage is a tool for golang projects that verbalizes a test coverage basing
+on a testcases names.
 
 
 ### before
@@ -45,22 +48,22 @@ PlaceholderTime_ReturnsTimeUsingSpecifiedLayout
 ```
 NewFormat                Returns Format With Default Fields
 Format                   Implements Formatter Interface
-Format->GetPlaceholders  Returns Placeholders Field
-Format->SetPlaceholders  Changes Placeholders Field
-Format->SetPlaceholder   Changes Placeholders Field
-Format->Render           Uses Placeholders Field For Matching Placeholders
-Format->Render           Placeholder Regexp Matching
-Format->Reset            Desolates Replacement And Unsets Compiled Flag
-Format->Render           Calls Setted Placeholders
-Format->Render           Calls Setted Placeholders And Passes Log Level
-Log->Fatal               Exit With Code1
+Format.GetPlaceholders   Returns Placeholders Field
+Format.SetPlaceholders   Changes Placeholders Field
+Format.SetPlaceholder    Changes Placeholders Field
+Format.Render            Uses Placeholders Field For Matching Placeholders
+Format.Render            Placeholder Regexp Matching
+Format.Reset             Desolates Replacement And Unsets Compiled Flag
+Format.Render            Calls Setted Placeholders
+Format.Render            Calls Setted Placeholders And Passes Log Level
+Log.Fatal                Exit With Code1
 NewLog                   Returns Log With Default Fields
 Log                      Implements Logger Interface
-Log->SetFormat           Changes Format Field
-Log->SetLevel            Changes Level Field
-Log->SetOutput           Changes Output Field
-Log->LoggingFunctions    Calls Format Render
-Log->LoggingFunctions    Logs Records With Same Level Or Above
+Log.SetFormat            Changes Format Field
+Log.SetLevel             Changes Level Field
+Log.SetOutput            Changes Output Field
+Log.LoggingFunctions     Calls Format Render
+Log.LoggingFunctions     Logs Records With Same Level Or Above
 PlaceholderLevel         Returns Level String Representation
 PlaceholderLine          Returns Caller Line
 PlaceholderFile          Returns Caller Filename In Short Mode By Default

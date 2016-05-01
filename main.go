@@ -15,7 +15,7 @@ var (
 	version = `1.0`
 	usage   = `Loverage ` + version + `
 
-Loverage is a utility for creating literal Go test coverage using function
+Loverage is the utility for creating literal Go test coverage using function
 names from _test.go files.
 
 Usage:
@@ -32,7 +32,7 @@ Options:
 )
 
 const (
-	ObjectMethodDelimiter = "->"
+	ObjectMethodDelimiter = "."
 )
 
 func main() {
