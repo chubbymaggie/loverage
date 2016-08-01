@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	reTestFunction = regexp.MustCompile(`^func Test([^\(]+)`)
+	reTestFunction = regexp.MustCompile(`^func Test_?([^\(]+)`)
 )
 
 func getTestFunctionsFromFiles(files []string) ([]string, error) {
