@@ -22,12 +22,13 @@ Usage:
     loverage [options]
 
 Options:
-    -f <file>     Specify test files that should be examined.
-                   [default: *_test.go]
-    -o <file>     Specify output file, use "-" value for stdout.
-                   [default: -]
-    -h --help     Show this screen.
-    -v --version  Show version.
+    -f --files <path>   Specify test files that should be examined.
+                         [default: *_test.go]
+    -o --output <path>  Specify output file, use "-" value for stdout.
+                         [default: -]
+    -t --table          Output as markdown table.
+    -h --help           Show this screen.
+    -v --version        Show version.
 `
 )
 
@@ -42,14 +43,15 @@ func main() {
 	}
 
 	var (
-		argFiles  = args["-f"].(string)
-		argOutput = args["-o"].(string)
+		sources     = args["--files"].(string)
+		destination = args["--output"].(string)
+		asTable     = args["--table"].(bool)
 	)
 
 	output := os.Stdout
-	if argOutput != "-" {
+	if destination != "-" {
 		output, err = os.OpenFile(
-			argOutput,
+			destination,
 			os.O_CREATE|os.O_TRUNC|os.O_WRONLY,
 			0666,
 		)
@@ -64,7 +66,7 @@ func main() {
 		}
 	}()
 
-	files, err := filepath.Glob(argFiles)
+	files, err := filepath.Glob(sources)
 	if err != nil {
 		log.Fatalf("can't glob files: %s", err)
 	}
@@ -91,7 +93,12 @@ func main() {
 				meaning.suffixes...,
 			)
 		}
-		fmt.Fprintln(table, strings.Join(columns, "\t"))
+
+		if asTable {
+			fmt.Fprintln(table, "| "+strings.Join(columns, "\t | ")+" |")
+		} else {
+			fmt.Fprintln(table, strings.Join(columns, "\t"))
+		}
 	}
 
 	err = table.Flush()

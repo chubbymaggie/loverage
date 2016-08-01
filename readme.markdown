@@ -24,10 +24,10 @@ func TestT_M_B() { ... }
 ```
 
 Where, 
-- **F** - tested function
-- **T** - tested type
-- **M** - tested type's method
-- **B** - expected behavior
+- **F** &ndash; tested function
+- **T** &ndash; tested type
+- **M** &ndash; tested type's method
+- **B** &ndash; expected behavior
 
 Examples:
 
@@ -40,10 +40,25 @@ func TestLogger_Infof_WritesMessageWithInfoSeverity()  { ... }
 Spawn **loverage** in a directory with test files and see output
 
 ```
+$ loverage
 NewLogger      Returns Logger Instance
 Logger         Implements Writer Interface
 Logger.Infof   Writes Message With Info Severity
 ```
+
+Add loverage's output to your readme file as markdown table:
+
+```
+$ loverage --table >> README.md
+```
+
+And see resulting table:
+
+| Subject        | Behavior |
+| -------------- | -------- |
+| NewLogger      | Returns Logger Instance |
+| Logger         | Implements Writer Interface |
+| Logger.Infof   | Writes Message With Info Severity |
 
 ### License
 MIT.
